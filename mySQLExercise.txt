@@ -1,0 +1,41 @@
+ - From the interactive prompt, CREATE and USE a new database
+    CREATE DATABASE firstDatabase;
+
+    USE firstDatabase;
+
+    SELECT DATABASE();
+
+    SHOW tables;
+
+ - Create a new table with at least 3 columns, one of them set as a primary key
+    CREATE TABLE Persons (
+     PersonID int,
+     LastName varchar(255),
+     FirstName varchar(255),
+     Address varchar(255),
+     City varchar(255)
+    );
+
+    ADD PRIMARY KEY (PersonID);
+
+ - Use the DESCRIBE <table-name> command to verify the setup of your new table
+    DESCRIBE Persons;
+    DESC Persons;
+
+ - INSERT some new rows into your new table
+    INSERT INTO Persons (PersonID, LastName, FirstName, Address, City)
+    VALUES (1, 'Peter', 'Williams', '123 Drive', 'LA');
+
+    INSERT INTO Persons VALUES
+    (2, 'Mary', 'Williams', '345 Drive', 'Chicago'),
+    (3, 'Mike', 'Man', '111 Drive', 'Seattle');
+
+ - Execute several queries
+    SELECT * FROM Persons
+    SELECT LastName FROM Persons WHERE City = 'LA';
+
+ - Use UPDATE key word in at least 2 different ways
+    UPDATE Persons SET FirstName = 'Cooper' WHERE PersonID = 2;
+
+ - Exit the interactive prompt
+    \q
