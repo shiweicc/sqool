@@ -1,0 +1,26 @@
+// JOIN TABLE
+- Which classes is 'sam' taking?
+
+  SELECT classes.name from classes
+    JOIN classes_students ON classes.id = classes_students.classes_id
+    JOIN students ON students.id = classes_students.student_id
+    WHERE students.name = 'sam';
+
+- What are the names of the students in the 'compromise' class?
+
+  SELECT students.name from students
+    JOIN classes_students ON students.id = classes_students.student_id
+    JOIN classes ON classes.id = classes_students.classes_id
+    WHERE classes.name = 'compromise';
+
+- What are the names of the students taking any class in the 'cs' department?
+
+    SELECT DISTINCT students.name FROM classes
+      JOIN classes_students ON classes.id = classes_students.classes_id
+      JOIN students ON classes_students.student_id = students.id
+      WHERE classes.department = (SELECT id from departments WHERE departments.name = 'cs');
+
+Answers from prompts above
+- 'sam' is taking the 'commumication' class
+- The students in the 'compromise' class are 'naomi', 'chris', and 'kim'
+- The names of the students taking any class in the 'cs' department are 'lauren', 'dan', 'naomi', 'kim' and 'chris'
